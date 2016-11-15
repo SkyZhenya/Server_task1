@@ -37,7 +37,14 @@ class ArticleController
 	public static function getById()
 	{
 		$id = htmlspecialchars($_REQUEST['id']);
-		$result = Article::getArticlesById($id);
-		var_dump($result);
+		$exist = Article::checkIdExist($id);
+		if (!empty($exist)){
+			$result = Article::getArticlesById($id);
+			var_dump($result);
+		}
+		else
+		{
+			http_response_code(404);
+		}
 	}
 }

@@ -61,9 +61,19 @@ class Article
 		$result = $db->prepare($sql);
 		$result->bindParam(':id', $id, PDO::PARAM_INT);
 		return $result->execute();
+	}
 
-
-
+	public static function checkIdExist($id)
+	{
+		$db = Database::getConnection();
+		$sql = 'SELECT COUNT(*) FROM article WHERE id = '.$id;
+		$result = $db->prepare($sql);
+		$result->execute();
+		
+		if (!empty($result->fetchColumn()))
+			return true;
+		return false;
+		
 	}
 
 }
