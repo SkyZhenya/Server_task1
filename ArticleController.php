@@ -31,16 +31,17 @@ class ArticleController
 	public static function get()
 	{
 		$result = Article::getArticles();
-		var_dump($result);
+		return $result;
 	}
 
 	public static function getById()
 	{
 		$id = htmlspecialchars($_REQUEST['id']);
 		$exist = Article::checkIdExist($id);
+		//var_dump($exist);
 		if (!empty($exist)){
 			$result = Article::getArticlesById($id);
-			var_dump($result);
+			return $result;
 		}
 		else
 		{

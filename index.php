@@ -7,8 +7,6 @@ require 'Database.php';
 require 'ArticleController.php';
 require 'Article.php';
 
-//include 'rest.php';
-
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch($method) {
@@ -22,10 +20,15 @@ switch($method) {
 			
 			if (!empty($_REQUEST['id']))
 			{
-				ArticleController::getById();
+				$json = ArticleController::getById();
+				if (!empty($json))
+				{
+					echo( json_encode($json));
+				}
 			}else
 			{
-				ArticleController::get();
+				$json = ArticleController::get();
+				echo( json_encode($json));
 			
 			}
 			break;
