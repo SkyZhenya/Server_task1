@@ -1,0 +1,15 @@
+{
+	"name": "root/new_rest",
+	"authors": [
+		{
+			"name": "Yevgeny Borovoy",
+			"email": "yevgeny.borovoy@codeit.com.ua"
+		}
+	],
+	"require": {
+		"zircote/swagger-php": "^2.0"
+	},
+	"autoload": {
+		"psr-0": { "": "" }
+	}
+}

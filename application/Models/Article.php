@@ -1,5 +1,9 @@
 <?php
 
+namespace application\Models;
+use application\Library\Database;
+use PDO;
+
 class Article
 {
 
@@ -27,8 +31,8 @@ class Article
 		$sql = 'SELECT * FROM article';
 		$result = $db->prepare($sql);
 		$result->execute();
-		return $result->fetchAll();
-		
+		$elements = $result->fetchAll();
+		return $elements;
 	}
 
 	public static function getArticlesById($id)

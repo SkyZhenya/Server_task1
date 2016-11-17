@@ -1,5 +1,8 @@
 <?php
 
+namespace application\Library;
+use PDO;
+
 class Database
 {
 	private $db;
@@ -13,7 +16,7 @@ class Database
 	{
 		$database = (self::$self === null) ? self::$self = new self() : self::$self;
 
-		$paramsPath = 'db_params.php';
+		$paramsPath = 'application/config/db_params.php';
 		$params = include($paramsPath);
 
 		$dsn = "mysql:host={$params['host']}; dbname={$params['dbname']}";

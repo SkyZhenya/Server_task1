@@ -1,0 +1,118 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API for Article direct",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/article": {
+            "get": {
+                "summary": "Get articles",
+                "description": "Get articles from database",
+                "operationId": "get",
+                "responses": {
+                    "200": {
+                        "description": "Success get articles"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add article",
+                "description": "Add article to database",
+                "operationId": "create",
+                "parameters": [
+                    {
+                        "name": "title",
+                        "description": "Article title",
+                        "required": "false",
+                        "type": "string"
+                    },
+                    {
+                        "name": "text",
+                        "description": "Article text",
+                        "required": "false",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/article/{id}": {
+            "get": {
+                "summary": "Get articles by ID",
+                "description": "Get articles by ID from database",
+                "operationId": "getById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "Article ID",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get post"
+                    },
+                    "404": {
+                        "description": "Not found post"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update article by ID",
+                "description": "Update article by ID from database",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "Article ID",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "name": "title",
+                        "description": "Title of article",
+                        "required": "false",
+                        "type": "string"
+                    },
+                    {
+                        "name": "text",
+                        "description": "Text of article",
+                        "required": "false",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success update article"
+                    },
+                    "404": {
+                        "description": "Not found article"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Remove article by ID",
+                "description": "Remove article by ID from database",
+                "operationId": "delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "article ID",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success remove article"
+                    },
+                    "404": {
+                        "description": "Not found article"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
